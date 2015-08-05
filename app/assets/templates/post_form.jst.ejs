@@ -4,17 +4,21 @@
 </ul>
 
 <form>
-  <label>Title:
-    <input type="text" name="post[title]" value="<%= post.escape("title") %>">
-  </label>
+  <div class="form-group">
+    <label for="post_title">Title:</label>
+    <input type="text"
+           name="post[title]"
+           id="post_title"
+           value="<%= post.escape("title") %>"
+           class="form-control">
+  </div>
 
-  <br><br>
+  <div class="form-group">
+    <label for="post_body">Body:</label>
+    <textarea name="post[body]"
+              id="post_body"
+              class="form-control"><%= post.escape("body") %></textarea>
+  </div>
 
-  <label>Body:
-    <textarea name="post[body]"><%= post.escape("body") %></textarea>
-  </label>
-
-  <br><br>
-
-  <input type="submit">
+  <input type="submit" class="btn btn-success">
 </form>

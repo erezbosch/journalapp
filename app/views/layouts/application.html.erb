@@ -6,12 +6,12 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="container">
 
 <%= yield %>
-<div class="journal-app">
-  <div class="sidebar"></div>
-  <div class="content"></div>
+<div class="journal-app row">
+  <div class="sidebar col-xs-3"></div>
+  <div class="content col-xs-9"></div>
 </div>
 
 </body>
