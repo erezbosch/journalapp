@@ -1,8 +1,8 @@
 JournalApp.Views.PostsIndex = Backbone.View.extend({
   template: JST['posts_index'],
 
-  initialize: function (option) {
-    this.listenTo(this.collection, "sync reset remove", this.render);
+  initialize: function (options) {
+    this.listenTo(this.collection, "sync add reset remove", this.render);
   },
 
   render: function () {
@@ -13,4 +13,5 @@ JournalApp.Views.PostsIndex = Backbone.View.extend({
     }.bind(this));
     return this;
   },
+
 });

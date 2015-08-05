@@ -1,41 +1,53 @@
 JournalApp.Routers.PostsRouter = Backbone.Router.extend({
   routes: {
-    "": "postsIndex",
+    "": "root",
+    "posts/new": "postNew",
     "posts/:id/edit": "postEdit",
     "posts/:id": "postShow",
   },
 
   initialize: function (options) {
     this.collection = new JournalApp.Collections.Posts();
-    this.collection.fetch();
     this.$rootEl = options.$rootEl;
+
+    this.collection.fetch();
+    var view = new JournalApp.Views.PostsIndex({ collection: this.collection });
+
+    this.$rootEl.find(".sidebar").html(view.$el);
+    this.$el = this.$rootEl.find(".content");
   },
 
-  postsIndex: function () {
-    var view = new JournalApp.Views.PostsIndex({collection: this.collection});
-    this.$rootEl.html(view.$el);
-    this.swap(view);
+  root: function () {
+    this._view = null;
+    this.$el.empty();
   },
 
   postShow: function (id) {
     var view = new JournalApp.Views.PostShow({
       model: this.collection.getOrFetch(id)
     });
-    this.$rootEl.html(view.$el);
     this.swap(view);
   },
 
   postEdit: function (id) {
     var view = new JournalApp.Views.PostForm({
-      model: this.collection.getOrFetch(id)
+      model: this.collection.getOrFetch(id),
+      collection: this.collection,
     });
-    this.$rootEl.html(view.$el);
+    this.swap(view);
+  },
+
+  postNew: function () {
+    var view = new JournalApp.Views.PostForm({
+      model: new JournalApp.Models.Post(),
+      collection: this.collection,
+    });
     this.swap(view);
   },
 
   swap: function (view) {
     this._view && this._view.remove();
     this._view = view;
-    return this;
+    this.$el.html(view.render().$el);
   }
 });

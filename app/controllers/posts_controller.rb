@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.order(:id)
     render json: @posts
+  end
+
+  def new
+    @post = Post.new
+    render json: @post
   end
 
   def create
@@ -26,9 +31,8 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    if @post.save
-      render json: @Post
+    if @post.update(post_params)
+      render json: @post
     else
       render json: @post.errors.full_messages, status: 422
     end

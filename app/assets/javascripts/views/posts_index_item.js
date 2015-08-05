@@ -12,7 +12,10 @@ JournalApp.Views.PostsIndexItem = Backbone.View.extend({
   },
 
   editPost: function () {
-    Backbone.history.navigate("posts/" + this.model.id + "/edit");
+    Backbone.history.navigate(
+      "posts/" + this.model.id + "/edit",
+      {trigger: true}
+    );
   },
 
   render: function () {
