@@ -1,6 +1,8 @@
 JournalApp.Views.PostsIndex = Backbone.View.extend({
   template: JST['posts_index'],
 
+  className: "sidebar col-xs-3",
+
   initialize: function (options) {
     this.listenTo(this.collection, "sync add reset remove", this.render);
   },

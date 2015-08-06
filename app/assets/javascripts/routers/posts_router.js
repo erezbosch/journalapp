@@ -13,7 +13,7 @@ JournalApp.Routers.PostsRouter = Backbone.Router.extend({
     this.collection.fetch();
     var view = new JournalApp.Views.PostsIndex({ collection: this.collection });
 
-    this.$rootEl.find(".sidebar").html(view.$el);
+    this.$rootEl.prepend(view.$el);
     this.$el = this.$rootEl.find(".content");
   },
 

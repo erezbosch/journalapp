@@ -34,14 +34,14 @@ JournalApp.Views.PostShow = Backbone.View.extend({
   },
 
   editTitle: function () {
-    var content = $("<input type='text'></input>").addClass("edit");
+    var content = $("<input type='text'></input>").addClass("edit form-control");
     this.$("h1.title").addClass("active");
     content.val(this.model.escape("title")).attr("name", "title");
     this.$("h1.title").html(content);
   },
 
   editBody: function () {
-    var content = $("<textarea>").addClass("edit");
+    var content = $("<textarea>").addClass("edit form-control");
     this.$("p.body").addClass("active");
     content.text(this.model.escape("body")).attr("name", "body");
     this.$("p.body").html(content);
