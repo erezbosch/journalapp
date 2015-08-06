@@ -7,6 +7,19 @@ h1.active > input {
   height: 100%;
 }
 
+
+.journal-app > div {
+  background: #ccc;
+  height: 1000px;
+  border-radius: 50px;
+}
+
+.journal-app:after {
+  content: "";
+  float: left;
+  clear: both;
+}
+
 .sidebar > ul {
   list-style: none;
   align-content: center;
@@ -15,17 +28,7 @@ h1.active > input {
 
 .sidebar > ul > li {
   font-size: 16px;
-  display: block;
-  margin: auto;
-}
-
-li > a {
-  display: block;
-}
-
-body {
-  background-image: image-url("yellow_note_pad.jpg");
-  background-position: 5% 5%;
+  margin: 10px auto;
 }
 
 .btn {

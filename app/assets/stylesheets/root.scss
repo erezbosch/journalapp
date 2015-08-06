@@ -4,4 +4,11 @@
 h1.row {
   font-size: 80px;
   font-family: courier;
+  border-radius: 50px;
+  background: #ccc;
+  height: 100px;
+  position: fixed;
+  overflow: auto;
+  z-index: 99;
+  width: 62.5%;
 }
